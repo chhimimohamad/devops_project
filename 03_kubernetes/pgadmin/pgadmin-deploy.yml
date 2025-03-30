@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin
+  namespace: icgroup
+  labels:
+    env: prod
+    app: pgadmin
+    type: local
+spec:
+  selector:
+    matchLabels:
+      app: pgadmin
+  template:
+    metadata:
+      labels:
+        app: pgadmin
+    spec:
+      containers:
+        - name: pgadmin
+          image: dpage/pgadmin4
+          ports:
+            - containerPort: 80
+          env:
+            - name: PGADMIN_DEFAULT_EMAIL
+              valueFrom:
+                configMapKeyRef:
+                  name: pgadmin-cm
+                  key: email
+            - name: PGADMIN_DEFAULT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: password
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          volumeMounts:
+            - mountPath: /pgadmin4/servers.json
+              name: pgadmin-storage
+              subPath: servers.json
+            - mountPath: /var/lib/pgadmin
+              name: pgadmin-storage-data
+      volumes:
+        - name: pgadmin-storage
+          configMap:
+            name: pgadmin-cm
+            items:
+              - key : servers.json
+                path : servers.json
+        - name: pgadmin-storage-data
+          persistentVolumeClaim:
+            claimName: pgadmin-pvc

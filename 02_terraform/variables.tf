@@ -1,0 +1,19 @@
+variable "cidr_blocks" {
+  default = ["0.0.0.0/0"]
+}
+#variable "security_group_name" {}
+variable "security_group_ports" {}
+variable "protocol" {}
+#variable "instance_name" {}
+variable "instance_type" {}
+variable "security_group_name" {}
+variable "username" {}
+#variable "private_key_path" {}
+#variable "ami" {}
+#variable "key_name" {}
+#variable "filename" {}
+variable "key_name" {}
+variable "region" {}
+variable "stack" {}
+variable "aws_access_key" {}
+variable "aws_secret_key" {}

@@ -1,0 +1,8 @@
+*.pem
+02_terraform/.terraform
+.terraform
+.terraform/
+02_terraform/.terraform.*
+02_terraform/terraform.tfstate
+02_terraform/terraform.tfstate.backup
+02_terraform/terraform.lock.hcl

@@ -1,0 +1,22 @@
+apiVersion: v1
+mind: PersistentVolume
+metadata:
+  name: odoo-pv
+  namespace: icgroup
+  labels:
+    env: prod
+    app: odoo
+    type: local
+spec: 
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: manual  
+  mountOptions:
+    - hard
+    - nfsvers=4
+  hostPath:
+    path: /data-odoo

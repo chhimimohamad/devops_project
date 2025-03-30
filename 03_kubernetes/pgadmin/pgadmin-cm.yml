@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pgadmin-cm
+  namespace: icgroup
+  labels:
+    env: prod
+    app: pgadmin
+    type: local
+data: 
+  email: toto@toto.com
+  servers.json: |
+    {
+      "Servers": {
+        "1": {
+          "Name": "PostgreSQL",
+          "Group": "Servers",
+          "Host": "postgresql-svc.icgroup.svc.cluster.local",
+          "Port": 5432,
+          "Username": "postgres",
+          "SSLMode": "prefer",
+          "MaintenanceDB": "postgres",
+          "PassFile": "/pgadmin4/.pgpass"
+        }
+      }
+    }
