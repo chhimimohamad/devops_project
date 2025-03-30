@@ -13,7 +13,6 @@ spec:
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
-  #persistentVolumeReclaimPolicy: Delete iofviojopijge
   storageClassName: manual
   hostPath: 
     path: /data-pgadmin
