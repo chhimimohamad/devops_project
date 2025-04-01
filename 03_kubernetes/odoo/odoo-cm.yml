@@ -4,5 +4,8 @@ metadata:
   name: odoo-cm
   namespace: icgroup
   labels:
+    env: prod
+    app: odoo
+  data:
     user: odoo
     host: postgres-svc
