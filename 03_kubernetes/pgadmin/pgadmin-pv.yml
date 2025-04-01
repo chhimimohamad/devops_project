@@ -13,6 +13,7 @@ spec:
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
   storageClassName: manual
   hostPath: 
     path: /data-pgadmin
