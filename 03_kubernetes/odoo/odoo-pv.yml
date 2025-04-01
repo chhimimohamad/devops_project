@@ -15,8 +15,5 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
   storageClassName: manual  
-  mountOptions:
-    - hard
-    - nfsvers=4
   hostPath:
     path: /data-odoo
