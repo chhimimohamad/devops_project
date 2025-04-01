@@ -51,8 +51,8 @@ spec:
           persistentVolumeClaim:
             claimName: odoo-pvc
         - name: odoo-storage-config
-          hostpath:
+          hostPath:
             path: /data-odoo/config
         - name: odoo-storage-addons
-          hostpath: 
+          hostPath: 
             path: /data-odoo/addons
